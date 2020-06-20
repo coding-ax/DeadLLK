@@ -11,6 +11,7 @@ myCell::myCell(QWidget *parent) : QPushButton(parent)
     connect(this,&QPushButton::clicked,[=]() mutable
     {
 //        qDebug()<<getX()<<getY();
+
         emit isClicked(getX() ,getY());
     });
 }

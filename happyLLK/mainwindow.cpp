@@ -7,6 +7,7 @@
 #include "mycell.h"
 #include "uicontrol.h"
 #include "gamearrayshow.h"
+#include <QTimer>
 #include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,16 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->show_box->hide();
 
     // 设置默认UI
-    // 以下仅为test数组
     QVector<QVector<int>> testArr1;
-//    for(int i=0;i<16;i++)
-//    {
-//        QVector<int> temp;
-//        for(int j =0 ; j<10 ; j++){
-//           temp.push_back(1);
-//        }
-//        testArr1.push_back(temp);
-//    }
     GameArrayShow arr(16,10,4);
     testArr1 =  arr.getShowArr();
 
@@ -58,6 +50,19 @@ MainWindow::~MainWindow()
 void MainWindow::on_start_game_button_clicked()
 {
     ui->show_box->show();
+    ui->showDialog->hide();
+    ui->start_game_button->setDisabled(true);
+    int lastTime = 2;
+    ui->progressBar->setValue( lastTime);
+    QTimer *progressSetting = new QTimer();
+    progressSetting->start(1000);
+    connect(progressSetting,&QTimer::timeout,[=]()mutable{
+        ui->progressBar->setValue(--lastTime);
+        if(lastTime==0){
+            progressSetting->stop();
+            ui->showDialog->show();
+        }
+    });
 }
 
 void MainWindow::on_stop_game_button_clicked()

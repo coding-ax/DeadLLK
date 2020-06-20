@@ -13,9 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -32,6 +35,10 @@ public:
     QPushButton *setting;
     QPushButton *help;
     QFrame *show_box;
+    QProgressBar *progressBar;
+    QWidget *showDialog;
+    QCheckBox *checkBox;
+    QLabel *label;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -82,6 +89,21 @@ public:
         show_box->setGeometry(QRect(0, 0, 1051, 671));
         show_box->setFrameShape(QFrame::StyledPanel);
         show_box->setFrameShadow(QFrame::Raised);
+        progressBar = new QProgressBar(show_box);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setGeometry(QRect(40, 640, 991, 23));
+        progressBar->setMaximum(100);
+        progressBar->setValue(100);
+        progressBar->setInvertedAppearance(false);
+        showDialog = new QWidget(show_box);
+        showDialog->setObjectName(QStringLiteral("showDialog"));
+        showDialog->setGeometry(QRect(360, 130, 381, 251));
+        checkBox = new QCheckBox(showDialog);
+        checkBox->setObjectName(QStringLiteral("checkBox"));
+        checkBox->setGeometry(QRect(150, 190, 71, 16));
+        label = new QLabel(showDialog);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(140, 80, 121, 16));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -103,6 +125,9 @@ public:
         start_game_button->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", Q_NULLPTR));
         setting->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", Q_NULLPTR));
         help->setText(QApplication::translate("MainWindow", "\345\270\256\345\212\251", Q_NULLPTR));
+        progressBar->setFormat(QApplication::translate("MainWindow", "%ps", Q_NULLPTR));
+        checkBox->setText(QApplication::translate("MainWindow", "\347\241\256\345\256\232", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "\345\257\271\344\270\215\350\265\267\344\275\240\350\276\223\344\272\206", Q_NULLPTR));
     } // retranslateUi
 
 };
