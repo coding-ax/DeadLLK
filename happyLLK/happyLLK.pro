@@ -30,16 +30,19 @@ SOURCES += \
         mainwindow.cpp \
     mycell.cpp \
     gamearrayshow.cpp \
-    uicontrol.cpp
+    uicontrol.cpp \
+    index.cpp
 
 HEADERS += \
         mainwindow.h \
     mycell.h \
     gamearrayshow.h \
-    uicontrol.h
+    uicontrol.h \
+    index.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    index.ui
 
 RESOURCES += \
     source/source.qrc

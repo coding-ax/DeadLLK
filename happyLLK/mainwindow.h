@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "uicontrol.h"
 #include"mycell.h"
+#include"gamearrayshow.h"
 namespace Ui {
 class MainWindow;
 }
@@ -21,10 +22,17 @@ private slots:
 
     void on_stop_game_button_clicked();
 
+    void on_restart_game_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     UIControl *UICon;
-
+    // 标记是否暂停
+    bool stopTemp;
+    // 剩余时间
+    int lastTime=100;
+    // 游戏数组维护类
+     GameArrayShow *arr;
 };
 
 #endif // MAINWINDOW_H

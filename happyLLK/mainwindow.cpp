@@ -21,17 +21,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // 设置默认UI
     QVector<QVector<int>> testArr1;
-    GameArrayShow arr(16,10,4);
-    testArr1 =  arr.getShowArr();
+    // 分配地址
+    this->arr = new GameArrayShow(16,10,4);
+    testArr1 =  arr->getShowArr();
 
     this->UICon = new UIControl();
     UICon->initUI(ui->show_box,testArr1);
     connect(UICon,&UIControl::changeArr,[=](int x,int y) mutable
     {
-//        qDebug()<<"main"<<x<<y;
+        // 进行消去判断
         if(UICon->hasClick){
-            arr.clearPoint(x,y, UICon->lastClickX,UICon->lastClickY);
-            UICon->refreshUI(arr.getShowArr());
+            arr->clearPoint(x,y, UICon->lastClickX,UICon->lastClickY);
+            UICon->refreshUI(arr->getShowArr());
             UICon->hasClick=false;
         }
         else{
@@ -50,40 +51,40 @@ MainWindow::~MainWindow()
 void MainWindow::on_start_game_button_clicked()
 {
     ui->show_box->show();
-    ui->showDialog->hide();
+    // 按钮禁用
     ui->start_game_button->setDisabled(true);
-    int lastTime = 2;
+    //定时器设置
     ui->progressBar->setValue( lastTime);
     QTimer *progressSetting = new QTimer();
     progressSetting->start(1000);
+    // 定时器标志
+    this->stopTemp = false;
     connect(progressSetting,&QTimer::timeout,[=]()mutable{
-        ui->progressBar->setValue(--lastTime);
+        // 定时
+        if(!this->stopTemp){
+              ui->progressBar->setValue(--this->lastTime);
+        }
         if(lastTime==0){
             progressSetting->stop();
-            ui->showDialog->show();
         }
     });
 }
 
 void MainWindow::on_stop_game_button_clicked()
 {
-    qDebug()<<"on_stop_game_button_clicked";
-    QVector<QVector<int>> testArr2;
-    // 依旧是测试数组 接下来我们做出抽离
-    for(int i=0;i<10;i++)
-    {
-        QVector<int> temp;
-        for(int j =0 ; j<5; j++){
-           temp.push_back(1);
-        }
-        for(int j=5;j<10;j++){
-            temp.push_back(0);
-        }
-        testArr2.push_back(temp);
+    if(!this->stopTemp){
+        this->ui->show_box->hide();
+        this->ui->stop_game_button->setText("继续游戏");
+        this->stopTemp = true;
     }
-     qDebug()<<"on_stop_game_button_clicked after testARR2";
-    this->UICon->refreshUI(testArr2);
+    else{
+        this->ui->show_box->show();
+        this->ui->stop_game_button->setText("暂停游戏");
+        this->stopTemp = false;
+    }
+}
 
-
+void MainWindow::on_restart_game_button_clicked()
+{
 
 }
