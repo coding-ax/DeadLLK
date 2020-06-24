@@ -10,5 +10,6 @@
         <file>img/logo(7).png</file>
         <file>img/logo.png</file>
         <file>img/white.png</file>
+        <file>img/back.png</file>
     </qresource>
 </RCC>
