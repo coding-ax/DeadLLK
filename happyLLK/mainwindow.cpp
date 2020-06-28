@@ -88,3 +88,11 @@ void MainWindow::on_restart_game_button_clicked()
 {
 
 }
+
+// 退出槽
+void MainWindow::on_setting_clicked()
+{
+   close();
+    // 分发事件打开主界面
+  emit exitToInit();
+}

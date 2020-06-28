@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "mainwindow.h"
+#include "dialogbox.h"
 namespace Ui {
 class index;
 }
@@ -18,9 +19,12 @@ public:
 private slots:
     void on_timeModern_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::index *ui;
     MainWindow *w;
+    DialogBox *dialog;
 };
 
 #endif // INDEX_H

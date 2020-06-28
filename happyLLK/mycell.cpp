@@ -11,7 +11,7 @@ myCell::myCell(QWidget *parent) : QPushButton(parent)
     connect(this,&QPushButton::clicked,[=]() mutable
     {
 //        qDebug()<<getX()<<getY();
-
+        // 分发坐标
         emit isClicked(getX() ,getY());
     });
 }
@@ -27,6 +27,7 @@ void myCell::setImage(int count)
        // 因为只有7张图
         count = count % 8;
         QString countString = QString::number(count,10);
+        // 设置图片背景
         QString currentStyle = "QPushButton{background-image:url(:/new/prefix1/img/logo("+countString+").png);background-position:center;}";
         setStyleSheet(currentStyle);
 }

@@ -19,6 +19,10 @@ public:
     GameArrayShow(QVector<QVector<int>> target);
     // 拿到这个数组
      QVector<QVector<int>> getShowArr();
+     // 设置初始化数组
+     void setInitArray(int level);
+     // 设置位置变化
+     void setRefreshArray();
      // 通过打乱来生成数组  level用于设置难度等级
      void initArray(int level);
      // 可否行消去判断

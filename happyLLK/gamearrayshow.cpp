@@ -31,12 +31,9 @@ int GameArrayShow::randomInt(int min,int max){
     int ans = rand()%(max-min)+min;
     return ans;
 }
-
-
-// 根据level进行打乱 level为总重复数[2-7] 默认为7
-void GameArrayShow::initArray(int level)
+// 初始化顺序生成
+void  GameArrayShow::setInitArray(int level)
 {
-    srand(time(0));
     int iLen = this->Height;
     int jLen = this->Width;
     int count =1;
@@ -52,17 +49,32 @@ void GameArrayShow::initArray(int level)
         }
         this->showArr.push_back(temp);
     }
+}
 
-   // 进行随机对换：
-    for(int i = 0;i < iLen*jLen/2; i++){
-        int x1 = rand()%iLen;
-        int y1 = rand()%jLen;
-        int x2 = rand()%iLen;
-        int y2 = rand()%jLen;
-        int temp = this->showArr[x1][y1];
-        this->showArr[x1][y1] = this->showArr[x2][y2];
-        this->showArr[x2][y2] = temp;
-    }
+// 打乱
+void   GameArrayShow::setRefreshArray()
+{
+    int iLen = this->Height;
+    int jLen = this->Width;
+    // 进行随机对换：
+     for(int i = 0;i < iLen*jLen/2; i++){
+         int x1 = rand()%iLen;
+         int y1 = rand()%jLen;
+         int x2 = rand()%iLen;
+         int y2 = rand()%jLen;
+         int temp = this->showArr[x1][y1];
+         this->showArr[x1][y1] = this->showArr[x2][y2];
+         this->showArr[x2][y2] = temp;
+     }
+}
+
+// 根据level进行打乱 level为总重复数[2-7] 默认为7
+void GameArrayShow::initArray(int level)
+{
+    srand(time(0));
+    //封装
+    setInitArray(level);
+    setRefreshArray();
 }
 // 获取showArr
 QVector<QVector<int>> GameArrayShow::getShowArr(){

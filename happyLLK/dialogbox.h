@@ -2,7 +2,7 @@
 #define DIALOGBOX_H
 
 #include <QDialog>
-
+#include <QString>
 namespace Ui {
 class DialogBox;
 }
@@ -14,7 +14,7 @@ class DialogBox : public QDialog
 public:
     explicit DialogBox(QWidget *parent = 0);
     ~DialogBox();
-
+    void setContent(QString);
 private:
     Ui::DialogBox *ui;
 };

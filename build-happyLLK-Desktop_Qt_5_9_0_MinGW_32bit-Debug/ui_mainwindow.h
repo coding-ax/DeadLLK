@@ -93,6 +93,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
+        QObject::connect(setting, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
         start_game_button->setDefault(false);
         setting->setDefault(false);
@@ -107,9 +108,9 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\346\254\242\344\271\220\350\277\236\350\277\236\347\234\213", Q_NULLPTR));
         stop_game_button->setText(QApplication::translate("MainWindow", "\346\232\202\345\201\234\346\270\270\346\210\217", Q_NULLPTR));
         message_button->setText(QApplication::translate("MainWindow", "\346\217\220\347\244\272", Q_NULLPTR));
-        restart_game_button->setText(QApplication::translate("MainWindow", "\351\207\215\345\274\200\344\270\200\345\261\200", Q_NULLPTR));
+        restart_game_button->setText(QApplication::translate("MainWindow", "\351\207\215\346\216\222", Q_NULLPTR));
         start_game_button->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", Q_NULLPTR));
-        setting->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", Q_NULLPTR));
+        setting->setText(QApplication::translate("MainWindow", "\351\200\200\345\207\272", Q_NULLPTR));
         help->setText(QApplication::translate("MainWindow", "\345\270\256\345\212\251", Q_NULLPTR));
         progressBar->setFormat(QApplication::translate("MainWindow", "%ps", Q_NULLPTR));
     } // retranslateUi

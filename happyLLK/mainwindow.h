@@ -24,6 +24,8 @@ private slots:
 
     void on_restart_game_button_clicked();
 
+    void on_setting_clicked();
+
 private:
     Ui::MainWindow *ui;
     UIControl *UICon;
@@ -33,6 +35,10 @@ private:
     int lastTime=100;
     // 游戏数组维护类
      GameArrayShow *arr;
+
+// 信号发送
+signals:
+     void exitToInit();
 };
 
 #endif // MAINWINDOW_H

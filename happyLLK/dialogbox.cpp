@@ -12,3 +12,7 @@ DialogBox::~DialogBox()
 {
     delete ui;
 }
+// 用来设置显示内容
+void DialogBox::setContent(QString target){
+    this->ui->label_2->setText(target);
+}

@@ -71,7 +71,7 @@
      <string notr="true">background-image:url(:/new/prefix1/img/white.png)</string>
     </property>
     <property name="text">
-     <string>重开一局</string>
+     <string>重排</string>
     </property>
    </widget>
    <widget class="QPushButton" name="start_game_button">
@@ -121,7 +121,7 @@
      <string notr="true">background-image:url(:/new/prefix1/img/white.png)</string>
     </property>
     <property name="text">
-     <string>设置</string>
+     <string>退出</string>
     </property>
     <property name="default">
      <bool>false</bool>
@@ -200,5 +200,22 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>setting</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1220</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>631</x>
+     <y>339</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

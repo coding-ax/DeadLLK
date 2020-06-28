@@ -5,9 +5,11 @@ INPUT(
 ./release/gamearrayshow.o
 ./release/uicontrol.o
 ./release/index.o
+./release/dialogbox.o
 ./release/qrc_source.o
 ./release/moc_mainwindow.o
 ./release/moc_mycell.o
 ./release/moc_uicontrol.o
 ./release/moc_index.o
+./release/moc_dialogbox.o
 );
