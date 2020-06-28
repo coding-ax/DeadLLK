@@ -1,0 +1,13 @@
+INPUT(
+./debug/main.o
+./debug/mainwindow.o
+./debug/mycell.o
+./debug/gamearrayshow.o
+./debug/uicontrol.o
+./debug/index.o
+./debug/qrc_source.o
+./debug/moc_mainwindow.o
+./debug/moc_mycell.o
+./debug/moc_uicontrol.o
+./debug/moc_index.o
+);

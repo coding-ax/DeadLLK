@@ -1,0 +1,13 @@
+INPUT(
+./release/main.o
+./release/mainwindow.o
+./release/mycell.o
+./release/gamearrayshow.o
+./release/uicontrol.o
+./release/index.o
+./release/qrc_source.o
+./release/moc_mainwindow.o
+./release/moc_mycell.o
+./release/moc_uicontrol.o
+./release/moc_index.o
+);

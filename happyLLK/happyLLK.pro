@@ -31,18 +31,21 @@ SOURCES += \
     mycell.cpp \
     gamearrayshow.cpp \
     uicontrol.cpp \
-    index.cpp
+    index.cpp \
+    dialogbox.cpp
 
 HEADERS += \
         mainwindow.h \
     mycell.h \
     gamearrayshow.h \
     uicontrol.h \
-    index.h
+    index.h \
+    dialogbox.h
 
 FORMS += \
         mainwindow.ui \
-    index.ui
+    index.ui \
+    dialogbox.ui
 
 RESOURCES += \
     source/source.qrc
