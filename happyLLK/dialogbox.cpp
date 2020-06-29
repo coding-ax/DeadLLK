@@ -16,3 +16,8 @@ DialogBox::~DialogBox()
 void DialogBox::setContent(QString target){
     this->ui->label_2->setText(target);
 }
+
+void DialogBox::on_pushButton_clicked()
+{
+    this->hide();
+}

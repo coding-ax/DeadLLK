@@ -10,6 +10,8 @@ private:
     // 坐标
     int x;
     int y;
+    // 区分标志
+    QString count;
 public:
     explicit myCell(QWidget *parent = nullptr);
     // 设置坐标
@@ -24,6 +26,8 @@ public:
     int getX();
     void setY(int y);
     int getY();
+    //设置被点击接口 true 有 false 无
+    void setColor(bool);
 
 signals:
     void isClicked(int x, int y);

@@ -15,6 +15,9 @@ public:
     explicit DialogBox(QWidget *parent = 0);
     ~DialogBox();
     void setContent(QString);
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::DialogBox *ui;
 };

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include "mainwindow.h"
 #include "dialogbox.h"
+#include <QMediaPlayer>
+
 namespace Ui {
 class index;
 }

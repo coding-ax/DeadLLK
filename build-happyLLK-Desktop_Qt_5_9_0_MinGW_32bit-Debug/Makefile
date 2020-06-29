@@ -230,8 +230,10 @@ Makefile: ../happyLLK/happyLLK.pro D:/Qt/Qt5.9.0/5.9/mingw53_32/mkspecs/win32-g+
 		D:/Qt/Qt5.9.0/5.9/mingw53_32/mkspecs/features/lex.prf \
 		../happyLLK/happyLLK.pro \
 		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/qtmaind.prl \
+		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Multimedia.prl \
 		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Gui.prl \
+		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Network.prl \
 		D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ../happyLLK/happyLLK.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug
 D:/Qt/Qt5.9.0/5.9/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -402,8 +404,10 @@ D:/Qt/Qt5.9.0/5.9/mingw53_32/mkspecs/features/yacc.prf:
 D:/Qt/Qt5.9.0/5.9/mingw53_32/mkspecs/features/lex.prf:
 ../happyLLK/happyLLK.pro:
 D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/qtmaind.prl:
+D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Multimedia.prl:
 D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Widgets.prl:
 D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Gui.prl:
+D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Network.prl:
 D:/Qt/Qt5.9.0/5.9/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../happyLLK/happyLLK.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug
