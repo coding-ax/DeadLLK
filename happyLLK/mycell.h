@@ -11,7 +11,7 @@ private:
     int x;
     int y;
     // 区分标志
-    QString count;
+    QString countCurrent;
 public:
     explicit myCell(QWidget *parent = nullptr);
     // 设置坐标

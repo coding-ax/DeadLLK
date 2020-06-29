@@ -28,10 +28,10 @@ void myCell::setImage(int count)
         count = count % 8;
 
         QString countString = QString::number(count,10);
-        this -> count = countString;
+        this -> countCurrent = countString;
 
         // 设置图片背景
-        QString currentStyle = "QPushButton{background-image:url(:/new/prefix1/img/logo("+countString+").png);background-position:center;border:2px solid red;}";
+        QString currentStyle = "QPushButton{background-image:url(:/new/prefix1/img/logo("+countString+").png);background-position:center;}";
         setStyleSheet(currentStyle);
 }
 void myCell::delImage(){
@@ -57,10 +57,15 @@ int myCell::getY(){
 // 设置点击反馈
 void myCell::setColor(bool flag)
 {
+     qDebug()<<countCurrent;
     if(flag){
-        this->setStyleSheet( "QPushButton{background-image:url(:/new/prefix1/img/logo("+count+").png);background-position:center;border:2px solid red;}");
+        // 边框设置为red
+        QString temp =  "QPushButton{background-image:url(:/new/prefix1/img/logo("+this->countCurrent+").png);background-position:center;border:2px solid red;}";
+        this->setStyleSheet(temp);
     }
     else{
-
+        QString temp =  "QPushButton{background-image:url(:/new/prefix1/img/logo("+this->countCurrent+").png);background-position:center;}";
+        this->setStyleSheet(temp);
+//        this->setStyleSheet( "QPushButton{background-image:url(:/new/prefix1/img/logo("+countCurrent+").png);background-position:center;");
     }
 }

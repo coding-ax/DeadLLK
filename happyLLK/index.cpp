@@ -7,20 +7,14 @@ index::index(QWidget *parent) :
     ui(new Ui::index)
 {
     ui->setupUi(this);
-
+    setWindowTitle("欢乐连连看");
     // 音乐test
-    QMediaPlayer *player = new QMediaPlayer(this);//设置背景音乐
-    player->setMedia(QUrl::fromLocalFile("F:/落空.mp3"));
-    player->setVolume(100);//音量
-    player->play();
-//    connect(player,&QMediaPlayer::mediaStatusChanged)
-    qDebug()<<"ddmusic"<<endl;
-
-    //测试dialog
-    this->dialog = new DialogBox;
-    this->dialog->setContent("你失败了！");
-    this->dialog->show();
-
+    this->player = new QMediaPlayer(this);//设置背景音乐
+    //    this->player->setMedia(QUrl::fromLocalFile(":/music/落空.mp3"));
+    //修改为qrc路径
+    this->player->setMedia(QUrl("qrc:/music/落空.mp3"));
+    this->player->setVolume(99);//音量
+   this-> player->play();
 }
 
 index::~index()
@@ -47,5 +41,37 @@ void index::on_timeModern_clicked()
 void index::on_pushButton_4_clicked()
 {
     this->dialog = new DialogBox;
+    this->dialog->setContent("xgp开发的LLK");
     this->dialog->show();
+
+}
+
+void index::on_pushButton_5_clicked()
+{
+    this->settingBox = new Setting;
+    this->settingBox->show();
+    // 监听设置开关
+    connect(this->settingBox,&Setting::isPlayed,[=](bool isplay)
+    {
+        qDebug()<<"test";
+        if(isplay){
+            qDebug()<<"点击了开启"<<endl;
+//            delete player;
+            player = new QMediaPlayer(this);//设置背景音乐
+            player->setMedia(QUrl("qrc:/music/落空.mp3"));
+            player->setVolume(100);//音量
+            player->play();
+        }
+        else{
+            qDebug()<<"点击了关闭"<<endl;
+            // 释放
+            delete player;
+           player = NULL;
+        }
+    });
+    // 监听音量调整
+    connect(this->settingBox,&Setting::volumeSizeChange,[=](int val)
+    {
+        this->player->setVolume(val);
+    });
 }

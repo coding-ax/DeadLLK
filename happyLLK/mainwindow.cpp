@@ -31,14 +31,34 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         // 进行消去判断
         if(UICon->hasClick){
-            arr->clearPoint(x,y, UICon->lastClickX,UICon->lastClickY);
-            UICon->refreshUI(arr->getShowArr());
-            UICon->hasClick=false;
+           int flag =  arr->clearPoint(x,y, UICon->lastClickX,UICon->lastClickY);
+           // 如果可以消去
+           if(flag){
+//               UICon->setColor(x,y,true);
+               UICon->refreshUI(arr->getShowArr());
+               UICon->hasClick=false;
+           }
+           // 否则更新点
+           else{
+               // 去掉边框
+              UICon->setColor(UICon->lastClickX,UICon->lastClickY,false);
+              // 更新点
+              UICon->lastClickX=x;
+              UICon->lastClickY=y;
+              // 设置 x y 位置的边框
+              UICon->setColor(x,y,true);
+              // 同时刷新点击标志
+               UICon->hasClick=true;
+           }
+
         }
         else{
             UICon->hasClick=true;
+            // 取消上个边框
             UICon->lastClickX=x;
             UICon->lastClickY=y;
+            // 设置 x y 位置的边框
+            UICon->setColor(x,y,true);
         }
     });
 }

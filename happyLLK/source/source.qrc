@@ -12,4 +12,7 @@
         <file>img/white.png</file>
         <file>img/back.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>music/落空.mp3</file>
+    </qresource>
 </RCC>

@@ -84,5 +84,12 @@ void UIControl::refreshUI(QVector<QVector<int>> arr)
 
 }
 
-/**/
+/*
+设置x,y的边框
+*/
+void UIControl::setColor(int x, int y, bool flag)
+{
+    // 调用接口进行设计
+    this->currentUI.at(x).at(y)->setColor(flag);
+}
 

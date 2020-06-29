@@ -32,7 +32,8 @@ SOURCES += \
     gamearrayshow.cpp \
     uicontrol.cpp \
     index.cpp \
-    dialogbox.cpp
+    dialogbox.cpp \
+    setting.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,12 +41,14 @@ HEADERS += \
     gamearrayshow.h \
     uicontrol.h \
     index.h \
-    dialogbox.h
+    dialogbox.h \
+    setting.h
 
 FORMS += \
         mainwindow.ui \
     index.ui \
-    dialogbox.ui
+    dialogbox.ui \
+    setting.ui
 
 RESOURCES += \
     source/source.qrc

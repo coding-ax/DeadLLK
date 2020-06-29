@@ -5,6 +5,7 @@ DialogBox::DialogBox(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogBox)
 {
+    setWindowTitle("提示框");
     ui->setupUi(this);
 }
 

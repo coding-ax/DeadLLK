@@ -5,7 +5,8 @@
 #include "mainwindow.h"
 #include "dialogbox.h"
 #include <QMediaPlayer>
-
+#include "setting.h"
+#include <QMediaPlayer>
 namespace Ui {
 class index;
 }
@@ -23,10 +24,15 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     Ui::index *ui;
     MainWindow *w;
     DialogBox *dialog;
+    Setting *settingBox;
+    // music
+    QMediaPlayer *player;
 };
 
 #endif // INDEX_H
