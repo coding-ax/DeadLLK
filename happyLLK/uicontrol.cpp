@@ -79,6 +79,15 @@ void UIControl::refreshUI(QVector<QVector<int>> arr)
                if(arr[i][j] ==0){
                     this->currentUI.at(i).at(j)->delImage();
                }
+               else{
+                   if(this->currentUI.at(i).at(j)->isHidden())
+                   {
+                       this->currentUI.at(i).at(j)->showImage();
+                   }
+               }
+               this->currentUI.at(i).at(j)->setImage(arr[i][j]);
+              this->currentUI.at(i).at(j)->setX(i);
+              this->currentUI.at(i).at(j)->setY(j);
            }
        }
 

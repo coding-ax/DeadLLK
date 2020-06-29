@@ -27,6 +27,8 @@ void index::on_timeModern_clicked()
     // 跳到限时模式 并隐藏当前窗口
     hide();
     this->w = new MainWindow;
+    // 设置限时模式难度
+    this->w->setMode(16,10,4,100);
     this->w->show();
 
 
@@ -73,5 +75,39 @@ void index::on_pushButton_5_clicked()
     connect(this->settingBox,&Setting::volumeSizeChange,[=](int val)
     {
         this->player->setVolume(val);
+    });
+}
+
+void index::on_pushButton_3_clicked()
+{
+    // 跳到娱乐模式 并隐藏当前窗口
+    hide();
+    this->w = new MainWindow;
+    // 设置限时模式难度
+    this->w->setMode(16,10,4,0);
+    this->w->show();
+
+
+    // 设置返回监听
+    connect(this->w,&MainWindow::exitToInit,[ = ]() mutable
+    {
+        show();
+    });
+}
+
+void index::on_pushButton_2_clicked()
+{
+    // 跳到关卡式 并隐藏当前窗口
+    hide();
+    this->w = new MainWindow;
+    // 设置关卡模式难度
+    this->w->setMode(8,5,4,100);
+    this->w->show();
+
+
+    // 设置返回监听
+    connect(this->w,&MainWindow::exitToInit,[ = ]() mutable
+    {
+        show();
     });
 }

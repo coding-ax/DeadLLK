@@ -24,7 +24,6 @@ public:
     bool dealClick(int x,int y);
     // 设置好边框
     void setColor(int x,int y,bool flag);
-
 signals:
     void changeArr(int x,int y);
 public slots:

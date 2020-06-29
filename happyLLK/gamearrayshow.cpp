@@ -66,6 +66,7 @@ void   GameArrayShow::setRefreshArray()
          this->showArr[x1][y1] = this->showArr[x2][y2];
          this->showArr[x2][y2] = temp;
      }
+
 }
 
 // 根据level进行打乱 level为总重复数[2-7] 默认为7
@@ -192,3 +193,22 @@ QVector<QVector<int>> GameArrayShow::getShowArr(){
      }
      return false;
  }
+
+
+ // 判断是否消除完毕
+ bool GameArrayShow::isEmpty()
+ {
+     int iLen = this->Height;
+     int jLen = this->Width;
+     for(int i=0;i<iLen;i++){
+         for(int j =0; j<jLen;j++){
+            if(this->showArr.at(i).at(j) != 0)
+            {
+                return false;
+            }
+         }
+     }
+     return true;
+ }
+
+

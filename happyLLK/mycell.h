@@ -20,7 +20,8 @@ public:
     void setImage(int count);
     // 清除图片
     void delImage();
-
+    // 图片显示
+    void showImage();
     // 坐标设置和获取
     void setX(int x);
     int getX();

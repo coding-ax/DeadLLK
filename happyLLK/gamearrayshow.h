@@ -37,6 +37,8 @@ public:
      int randomInt(int min,int max);
      // 清除对应点
      bool clearPoint(int x1,int y1,int x2,int y2);
+     // 判断是否已经全部消除完毕
+     bool isEmpty();
 };
 
 #endif // GAMEARRAYSHOW_H

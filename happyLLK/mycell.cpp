@@ -37,6 +37,14 @@ void myCell::setImage(int count)
 void myCell::delImage(){
    this->hide();
 }
+void myCell::showImage(){
+    if(this->isHidden()){
+        QString temp =  "QPushButton{background-image:url(:/new/prefix1/img/logo("+this->countCurrent+").png);background-position:center;}";
+        this->setStyleSheet(temp);
+          this->show();
+    }
+
+}
 
 void myCell::setX(int x)
 {
