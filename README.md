@@ -2,7 +2,7 @@
 
 为方便查看结果：已经进行Enigma Virtual Box对相关依赖进行了封装和打包   
 
-打开 dist-release 运行 欢乐连连看.exe 即可在windows平台进行运行结果查看 所有配置均已写入    
+windows平台进行运行结果查看 所有配置均已写入    
 
 Linux平台，需要重新对其进行编译 源码项目文件： happyLLK/happyLLK.pro.user   
 
